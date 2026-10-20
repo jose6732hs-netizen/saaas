@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#101014">
+<meta name="description" content="Seu espaço pessoal para acessar ChatGPT e Claude em um só lugar.">
+<link rel="manifest" href="./manifest.webmanifest">
+<link rel="icon" href="./icon.svg" type="image/svg+xml">
+<title>Plus Infinity</title>
+<style>
+:root{color-scheme:dark;--bg:#0b0b10;--panel:#15151d;--panel2:#1c1c27;--text:#f7f7fb;--muted:#a5a5b5;--line:#2c2c3a;--accent:#a855f7;--accent2:#00f5a0;--shadow:0 22px 70px #0007}
+:root[data-theme="light"]{color-scheme:light;--bg:#f3f3f8;--panel:#fff;--panel2:#f0eff6;--text:#191922;--muted:#676779;--line:#dedee9;--shadow:0 18px 55px #25203b12}
+*{box-sizing:border-box}body{margin:0;min-height:100vh;background:radial-gradient(ellipse at 15% 0%,color-mix(in srgb,var(--accent) 18%,transparent),transparent 42%),radial-gradient(ellipse at 100% 35%,color-mix(in srgb,var(--accent2) 8%,transparent),transparent 35%),var(--bg);color:var(--text);font:16px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;transition:background .25s,color .25s}
+button,a,input{font:inherit}button{cursor:pointer}.wrap{max-width:960px;margin:auto;padding:calc(24px + env(safe-area-inset-top)) 18px calc(28px + env(safe-area-inset-bottom))}
+.top{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:34px}.brand{display:flex;align-items:center;gap:12px}.logo{width:46px;height:46px;border-radius:15px;display:grid;place-items:center;background:linear-gradient(135deg,var(--accent),#6636e9 60%,var(--accent2));box-shadow:0 8px 30px color-mix(in srgb,var(--accent) 30%,transparent);font-size:25px;font-weight:900;color:white}.brand h1{font-size:19px;letter-spacing:-.6px;margin:0}.brand p{margin:1px 0 0;color:var(--muted);font-size:12px}.tools{display:flex;gap:8px}.iconbtn{height:42px;min-width:42px;border:1px solid var(--line);border-radius:13px;background:var(--panel);color:var(--text);display:grid;place-items:center}
+.hero{margin:0 0 26px}.eyebrow{color:var(--accent2);font-size:11px;letter-spacing:2px;font-weight:800;text-transform:uppercase}.hero h2{font-size:clamp(30px,6vw,48px);letter-spacing:-1.8px;line-height:1.08;margin:9px 0 12px;max-width:640px}.hero p{color:var(--muted);margin:0;max-width:570px}
+.cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.ai-card{position:relative;overflow:hidden;text-decoration:none;color:var(--text);background:var(--panel);border:1px solid var(--line);border-radius:22px;padding:22px;min-height:205px;display:flex;flex-direction:column;box-shadow:var(--shadow);transition:transform .18s,border-color .18s}.ai-card:hover{transform:translateY(-3px);border-color:var(--accent)}.ai-card:focus-visible,button:focus-visible,a:focus-visible{outline:3px solid var(--accent2);outline-offset:3px}.card-top{display:flex;align-items:center;justify-content:space-between}.ai-logo{width:50px;height:50px;border-radius:16px;display:grid;place-items:center;font-weight:900;font-size:25px}.gpt{background:#d7f7e9;color:#087b58}.claude{background:#f6e7d7;color:#9a5129}.open{color:var(--muted);font-size:22px}.ai-card h3{font-size:20px;margin:17px 0 4px}.ai-card p{font-size:13px;color:var(--muted);margin:0 0 17px}.go{margin-top:auto;display:flex;align-items:center;justify-content:space-between;color:var(--accent2);font-size:13px;font-weight:750}.section{margin-top:28px}.section-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:12px}.section h3{font-size:15px;margin:0}.sub{font-size:12px;color:var(--muted)}.quick{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}.quick a,.quick button{display:flex;align-items:center;gap:10px;text-align:left;min-height:66px;padding:12px;border-radius:16px;border:1px solid var(--line);background:var(--panel);color:var(--text);text-decoration:none}.quick .qicon{font-size:19px}.quick strong{font-size:12px;display:block}.quick small{display:block;color:var(--muted);font-size:10px;margin-top:2px}
+.settings{margin-top:28px;background:var(--panel);border:1px solid var(--line);border-radius:20px;padding:18px}.settings summary{font-weight:750;cursor:pointer;list-style:none;display:flex;justify-content:space-between}.settings summary::-webkit-details-marker{display:none}.settings-body{padding-top:17px;display:grid;grid-template-columns:1fr 1fr;gap:18px}.field label{display:block;color:var(--muted);font-size:12px;margin-bottom:8px}.choices{display:flex;gap:8px;flex-wrap:wrap}.choice{border:1px solid var(--line);background:var(--panel2);color:var(--text);border-radius:11px;padding:8px 11px;font-size:12px}.choice[aria-pressed="true"]{border-color:var(--accent);box-shadow:inset 0 0 0 1px var(--accent)}.swatches{display:flex;gap:10px}.swatch{width:30px;height:30px;border-radius:50%;border:2px solid transparent;background:var(--c)}.swatch[aria-pressed="true"]{outline:2px solid var(--text);outline-offset:3px}.footer{margin:25px 0 0;text-align:center;color:var(--muted);font-size:11px}.toast{position:fixed;bottom:calc(20px + env(safe-area-inset-bottom));left:50%;transform:translateX(-50%);background:var(--text);color:var(--bg);border-radius:12px;padding:10px 16px;font-size:12px;box-shadow:var(--shadow);opacity:0;pointer-events:none;transition:opacity .2s}.toast.show{opacity:1}
+@media(max-width:560px){.wrap{padding-left:15px;padding-right:15px}.top{margin-bottom:28px}.brand p{max-width:165px}.cards{grid-template-columns:1fr}.ai-card{min-height:180px;padding:19px}.quick{grid-template-columns:1fr}.quick a,.quick button{min-height:58px}.settings-body{grid-template-columns:1fr}.hero h2{font-size:34px}.ai-card h3{margin-top:13px}}
+</style>
+</head>
+<body>
+<main class="wrap">
+<header class="top">
+<div class="brand"><div class="logo" aria-hidden="true">∞</div><div><h1>Plus Infinity</h1><p>Seu espaço pessoal de inteligência artificial</p></div></div>
+<div class="tools"><button class="iconbtn" id="themeBtn" aria-label="Alternar tema" title="Alternar tema">☼</button><button class="iconbtn" id="installBtn" aria-label="Instalar aplicativo" title="Instalar aplicativo" hidden>＋</button></div>
+</header>
+<section class="hero"><div class="eyebrow">Seu hub de IA</div><h2>Ideias melhores começam aqui.</h2><p>Acesse seus assistentes favoritos em um só lugar. Rápido, organizado e feito para funcionar bem no celular.</p></section>
+<section class="cards" aria-label="Assistentes de inteligência artificial">
+<a class="ai-card" href="https://chatgpt.com/" target="_blank" rel="noopener noreferrer"><div class="card-top"><div class="ai-logo gpt">✳</div><span class="open">↗</span></div><h3>ChatGPT</h3><p>Converse, crie, pesquise ideias e resolva tarefas com IA.</p><div class="go"><span>Abrir ChatGPT</span><span>→</span></div></a>
+<a class="ai-card" href="https://claude.ai/new" target="_blank" rel="noopener noreferrer"><div class="card-top"><div class="ai-logo claude">✳</div><span class="open">↗</span></div><h3>Claude</h3><p>Escreva, analise documentos e trabalhe em projetos complexos.</p><div class="go"><span>Abrir Claude</span><span>→</span></div></a>
+</section>
+<section class="section"><div class="section-head"><h3>Acesso rápido</h3><span class="sub">Atalhos oficiais</span></div><div class="quick">
+<a href="https://chatgpt.com/" target="_blank" rel="noopener noreferrer"><span class="qicon">💬</span><span><strong>ChatGPT</strong><small>chatgpt.com</small></span></a>
+<a href="https://claude.ai/" target="_blank" rel="noopener noreferrer"><span class="qicon">✦</span><span><strong>Claude</strong><small>claude.ai</small></span></a>
+<button id="shareBtn"><span class="qicon">↗</span><span><strong>Compartilhar</strong><small>Enviar este hub</small></span></button>
+</div></section>
+<details class="settings" id="settings"><summary><span>⚙ Personalizar aparência</span><span>＋</span></summary><div class="settings-body">
+<div class="field"><label>Tema</label><div class="choices"><button class="choice" data-theme-choice="dark" aria-pressed="true">Escuro</button><button class="choice" data-theme-choice="light" aria-pressed="false">Claro</button><button class="choice" data-theme-choice="system" aria-pressed="false">Sistema</button></div></div>
+<div class="field"><label>Cor de destaque</label><div class="swatches"><button class="swatch" style="--c:#a855f7" data-accent="#a855f7" aria-label="Roxo" aria-pressed="true"></button><button class="swatch" style="--c:#00f5a0" data-accent="#00c98b" aria-label="Verde" aria-pressed="false"></button><button class="swatch" style="--c:#4385ff" data-accent="#4385ff" aria-label="Azul" aria-pressed="false"></button><button class="swatch" style="--c:#ff648b" data-accent="#ff648b" aria-label="Rosa" aria-pressed="false"></button></div></div>
+</div></details>
+<p class="footer">Plus Infinity · Atalhos para serviços oficiais. Suas preferências ficam neste dispositivo.</p>
+</main><div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script>
+const root=document.documentElement, toast=document.getElementById('toast');
+function say(t){toast.textContent=t;toast.classList.add('show');setTimeout(()=>toast.classList.remove('show'),2200)}
+function setTheme(v){const actual=v==='system'?(matchMedia('(prefers-color-scheme: light)').matches?'light':'dark'):v;root.dataset.theme=actual;localStorage.setItem('pi-theme',v);document.querySelectorAll('[data-theme-choice]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.themeChoice===v)))}
+function setAccent(v){root.style.setProperty('--accent',v);localStorage.setItem('pi-accent',v);document.querySelectorAll('[data-accent]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.accent===v)))}
+setTheme(localStorage.getItem('pi-theme')||'dark');setAccent(localStorage.getItem('pi-accent')||'#a855f7');
+document.querySelectorAll('[data-theme-choice]').forEach(b=>b.addEventListener('click',()=>setTheme(b.dataset.themeChoice)));
+document.querySelectorAll('[data-accent]').forEach(b=>b.addEventListener('click',()=>setAccent(b.dataset.accent)));
+document.getElementById('themeBtn').addEventListener('click',()=>setTheme(root.dataset.theme==='dark'?'light':'dark'));
+document.getElementById('shareBtn').addEventListener('click',async()=>{try{if(navigator.share)await navigator.share({title:'Plus Infinity',text:'Meu espaço pessoal de IA',url:location.href});else{await navigator.clipboard.writeText(location.href);say('Link copiado!')}}catch(e){if(e.name!=='AbortError')say('Use o menu Compartilhar do navegador.')}});
+let deferredPrompt;const installBtn=document.getElementById('installBtn');window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();deferredPrompt=e;installBtn.hidden=false});installBtn.addEventListener('click',async()=>{if(deferredPrompt){deferredPrompt.prompt();await deferredPrompt.userChoice;deferredPrompt=null;installBtn.hidden=true}else say('No Safari: Compartilhar → Adicionar à Tela de Início.')});
+if('serviceWorker' in navigator && location.protocol.startsWith('http'))window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js').catch(()=>{}));
+</script>
+</body></html>
